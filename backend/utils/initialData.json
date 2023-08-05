@@ -1,0 +1,52 @@
+ [
+   {
+      "name": "Nike Air Force 1 Low - Classic White",
+      "slug": "nike-air-force-1-low-white",
+      "description": "The iconic Nike Air Force 1 Low in classic white colorway. A timeless sneaker that goes well with any outfit.",
+      "price": 100,
+      "category": "Men's Shoes",
+      "quantity": 50,
+      "photo": "dddd",
+      "shipping": true
+    },
+    {
+      "name": "Nike Air Force 1 Mid - Black/Red",
+      "slug": "nike-air-force-1-mid-black-red",
+      "description": "A mid-top version of the Air Force 1 featuring a sleek black and red color combination.",
+      "price": 120.00,
+      "category": "Men's Shoes",
+      "quantity": 30,
+      "photo": "[Link to the photo]",
+      "shipping": false
+    },
+    {
+      "name": "Nike Air Force 1 '07 - Women's Floral",
+      "slug": "nike-air-force-1-07-floral",
+      "description": "An '07 edition of the Air Force 1 for women, adorned with a floral pattern for a stylish look.",
+      "price": 95.00,
+      "category": "Women's Shoes",
+      "quantity": 20,
+      "photo": "[Link to the photo]",
+      "shipping": true
+    },
+    {
+      "name": "Nike Air Force 1 High - Wheat",
+      "slug": "nike-air-force-1-high-wheat",
+      "description": "The high-top version of the Air Force 1 in a warm wheat color, perfect for the fall season.",
+      "price": 110.00,
+      "category": "Men's Shoes",
+      "quantity": 15,
+      "photo": "[Link to the photo]",
+      "shipping": true
+    },
+    {
+      "name": "Nike Air Force 1 LV8 - Metallic Gold",
+      "slug": "nike-air-force-1-lv8-gold",
+      "description": "The LV8 edition of Air Force 1 featuring a shiny metallic gold finish for a luxurious touch.",
+      "price": 130.00,
+      "category": "Men's Shoes",
+      "quantity": 25,
+      "photo": "[Link to the photo]",
+      "shipping": true
+    }
+]

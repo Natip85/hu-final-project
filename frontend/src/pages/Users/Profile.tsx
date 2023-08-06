@@ -133,7 +133,6 @@ const Profile = (props: Props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type={passwordShown ? "text" : "password"}
-            style={{ borderRight: "none" }}
           />
           {eyeShown ? (
             <i
@@ -142,8 +141,7 @@ const Profile = (props: Props) => {
               style={{
                 backgroundColor: "white",
                 fontSize: "1.5rem",
-                border: "1px solid lightgrey",
-                borderRadius: 5,
+                cursor: 'pointer'
               }}
             />
           ) : (
@@ -153,8 +151,10 @@ const Profile = (props: Props) => {
               style={{
                 backgroundColor: "white",
                 fontSize: "1.5rem",
-                border: "1px solid lightgrey",
-                borderRadius: 5,
+                cursor: 'pointer'
+                // border: "1px solid lightgrey",
+                // borderRadius: 5,
+                  // borderTopLeftRadius: 0
               }}
             />
           )}

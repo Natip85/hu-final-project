@@ -133,7 +133,7 @@ const Home = () => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex: any, e: any) => {
-    console.log("selected index: ", selectedIndex);
+    // console.log("selected index: ", selectedIndex);
     setIndex(selectedIndex);
   };
 

@@ -23,10 +23,10 @@ const Categories = (props: Props) => {
   return (
     <Container>
       <h2 className="text-center mb-5">Shop by Category</h2>
-      <Button onClick={()=>navigate(-1)} className="mb-5">Back home</Button>
+      <Button onClick={()=>navigate(-1)} className="mb-5">Back</Button>
        <Row className="g-3 ms-3 w-100 my-5">
         {categories.map((c) => (
-          <Col lg={3}>
+          <Col key={c._id} lg={3}>
             <Link
               className=""
               to={`/category/${c.slug}`}

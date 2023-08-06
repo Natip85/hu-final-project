@@ -30,7 +30,7 @@ const CategoryProducts = () => {
         {products.length} results found
       </h5>
       <div>
-        <Button onClick={()=>navigate(-1)} className="mb-5">Back To All Products</Button>
+        <Button onClick={()=>navigate(-1)} className="mb-5">Back</Button>
       </div>
       <div className="row">
         <div className="d-flex flex-wrap">

@@ -33,10 +33,6 @@ const itemSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    // photo: {
-    //   data: Buffer,
-    //   contentType: String,
-    // },
     photo: {
       type: String,
       required: true

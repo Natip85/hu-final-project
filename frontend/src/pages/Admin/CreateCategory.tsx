@@ -15,9 +15,11 @@ type Props = {};
 const CreateCategory = (props: Props) => {
   const [categories, setCategories] = useState<Array<Category>>([]);
   const [name, setName] = useState("");
+  const [catImg, setCatImg] = useState("");
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState("");
   const [updatedName, setUpdatedName] = useState("");
+  const [updatedCatImg, setUpdatedCatImg] = useState("");
 
   useEffect(() => {
     getAllCategories();
@@ -33,11 +35,13 @@ const CreateCategory = (props: Props) => {
     e.preventDefault();
     createCategory({
       name,
+      catImg,
     }).then((json) => {
       if (json.success) {
         toast.success(`${name} was created`);
         getAllCategories();
         setName("");
+        setCatImg("");
       } else {
         toast.error(`${json.message}`);
       }
@@ -46,17 +50,20 @@ const CreateCategory = (props: Props) => {
 
   const handleUpdate = async (e: any) => {
     e.preventDefault();
-    updateCategory(selected, { name: updatedName }).then((json) => {
-      if (json.success) {
-        toast.success(`${updatedName} was updated`);
-        setSelected("");
-        setUpdatedName("");
-        setVisible(false);
-        getAllCategories();
-      } else {
-        toast.error(`${json.message}`);
+    updateCategory(selected, { name: updatedName, catImg: updatedCatImg }).then(
+      (json) => {
+        if (json.success) {
+          toast.success(`${updatedName} was updated`);
+          setSelected("");
+          setUpdatedName("");
+          setUpdatedCatImg("");
+          setVisible(false);
+          getAllCategories();
+        } else {
+          toast.error(`${json.message}`);
+        }
       }
-    });
+    );
   };
 
   const handleDelete = async (pid: string) => {
@@ -92,6 +99,28 @@ const CreateCategory = (props: Props) => {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control "
+                    placeholder="Add category image"
+                    value={catImg}
+                    onChange={(e) => setCatImg(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  {catImg && (
+                    <div className="text-center">
+                      <img
+                        style={{ width: "150px" }}
+                        src={catImg}
+                        alt="product_photo"
+                        height={"150px"}
+                        className="img img-responsive"
+                      />
+                    </div>
+                  )}
+                </div>
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
@@ -102,6 +131,7 @@ const CreateCategory = (props: Props) => {
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -110,12 +140,15 @@ const CreateCategory = (props: Props) => {
                     <tr key={c._id}>
                       <td>{c.name}</td>
                       <td>
+                        <img style={{ width: "100px" }} src={c.catImg} alt="" />
+                      </td>
+                      <td>
                         <button
                           className="btn btn-primary ms-2"
                           onClick={() => {
                             setVisible(true);
                             setUpdatedName(c.name);
-
+                            setUpdatedCatImg(c.catImg);
                             setSelected(c._id);
                           }}
                         >
@@ -149,6 +182,28 @@ const CreateCategory = (props: Props) => {
                     value={updatedName}
                     onChange={(e) => setUpdatedName(e.target.value)}
                   />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control "
+                    placeholder="Add category image"
+                    value={updatedCatImg}
+                    onChange={(e) => setUpdatedCatImg(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  {updatedCatImg && (
+                    <div className="text-center">
+                      <img
+                        style={{ width: "150px" }}
+                        src={updatedCatImg}
+                        alt="product_photo"
+                        height={"150px"}
+                        className="img img-responsive"
+                      />
+                    </div>
+                  )}
                 </div>
                 <button type="submit" className="btn btn-primary">
                   Submit

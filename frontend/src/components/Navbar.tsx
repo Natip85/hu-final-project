@@ -40,19 +40,20 @@ const Navbar = () => {
        <NavbarBs.Brand as={NavLink} to="/">NatsKicks</NavbarBs.Brand>
       <Container>
         <Nav className="me-auto">
-          <Nav.Link to="/" as={NavLink}>
+          <Nav.Link to="/" as={NavLink} className="text-primary">
             Home
           </Nav.Link>
           {/* <Nav.Link to="/about" as={NavLink}>
             About
           </Nav.Link> */}
-          <Nav.Link to="/favorites" as={NavLink}>
+           {userData?.token && (
+          <Nav.Link to="/favorites" as={NavLink} className="text-primary">
             Favorites
           </Nav.Link>
-
+           )}
             <Dropdown className="">
               <Dropdown.Toggle
-                className="ps-4 pe-4 border-0"
+                className=" border-0"
                 variant="outline-primary"
                 id="dropdown-basic"
               >
@@ -69,11 +70,8 @@ const Navbar = () => {
                 ))}
               </Dropdown.Menu>
             </Dropdown>
-        </Nav>
 
-        {userData?.token && (
-          <>
-           <Col xs="auto">
+             <Col xs="auto" className="ms-5" style={{width: '300px'}}>
             <Form.Control
             onChange={handleSearchChange}
                     value={searchValue}
@@ -82,6 +80,12 @@ const Navbar = () => {
               className=" mr-sm-2"
             />
           </Col>
+
+        </Nav>
+
+        {userData?.token && (
+          <>
+          
           
 
             <Dropdown className="ms-4">

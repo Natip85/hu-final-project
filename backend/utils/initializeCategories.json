@@ -1,18 +1,22 @@
  [
    {
       "name": "Mens",
-      "slug": "mens-collection"
+      "slug": "mens-collection",
+      "catImg": "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2023/2023_05_09_fl_omn_certifiedclassics/05_final_output_files/ecom/category/2023_05_09_FL_OMN_CertifiedClassics_MEN_EN_HP_Button_800x800.jpg"
     },
    {
       "name": "Womens",
-      "slug": "womens-collection"
+      "slug": "womens-collection",
+       "catImg": "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2023/2023_05_09_fl_omn_certifiedclassics/05_final_output_files/ecom/category/2023_05_09_FL_OMN_CertifiedClassics_HP_Button_GENDER_Women_A_800x800.jpg"
     },
    {
       "name": "Kids",
-      "slug": "kids-collection"
+      "slug": "kids-collection",
+       "catImg": "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2023/2023_05_09_fl_omn_certifiedclassics/05_final_output_files/ecom/category/2023_05_09_FL_OMN_CertifiedClassics_KIDS_EN_HP_Button_800x800.jpg"
     },
    {
       "name": "Baby",
-      "slug": "baby-collection"
+      "slug": "baby-collection",
+       "catImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz8G6mfVi3RygRcvbJ7xbGJmkEukt3_OfZmg&usqp=CAU"
     }
 ]

@@ -26,14 +26,15 @@ const Categories = (props: Props) => {
       <Button onClick={()=>navigate(-1)} className="mb-5">Back</Button>
        <Row className="g-3 ms-3 w-100 my-5">
         {categories.map((c) => (
-          <Col key={c._id} lg={3}>
+          <Col className="d-flex flex-column align-items-center" key={c._id} lg={3}>
             <Link
               className=""
               to={`/category/${c.slug}`}
             >
-              {c.name}
+              <img style={{width: '200px'}} src={c.catImg} alt="" />
+             
             </Link>
-       
+        {c.name}
          </Col>
         ))}
       </Row>

@@ -22,6 +22,9 @@ import Favorites from "./pages/Favorites";
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Users/Profile";
 import Footer from "./components/Footer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Users from "./pages/Admin/Users";
+import UserFavorites from "./pages/Users/UserFavorites";
 
 function App() {
   
@@ -34,6 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path='/categories' element={<Categories/>}/>
@@ -45,11 +49,13 @@ function App() {
 
             <Route path="/dashboard" element={<Private />}>
               <Route path="user" element={<UserDashboard />} />
+              <Route path="user/favorites" element={<UserFavorites />} />
               <Route path="user/profile" element={<Profile />} />
             </Route>
 
             <Route path="/dashboard" element={<AdminPrivate />}>
               <Route path="admin" element={<AdminDashboard />} />
+              <Route path='admin/users' element={<Users/>}/>
               <Route path='admin/products' element={<Products/>}/>
               <Route path='admin/products/:id' element={<EditProduct/>}/>
               <Route

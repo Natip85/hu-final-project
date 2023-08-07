@@ -36,6 +36,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked.length, radio.length]);
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const Home = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const loadMore = async () => {
@@ -64,6 +66,7 @@ const Home = () => {
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked, radio]);
 
   async function getAllCategories() {
@@ -222,7 +225,7 @@ const Home = () => {
         {filteredItems?.length < 1 && (
           <div className="w-100 text-center text-danger">No results found</div>
         )}
-        <Row md={2} xs={3} lg={3} className="g-3 ms-3 w-100">
+        <Row md={2} xs={1} lg={3} className="g-3 ms-3 w-100">
           {filteredItems.map((item) => (
             <Col key={item._id}>
               {allItems?.length < 1 && <div>No results found</div>}

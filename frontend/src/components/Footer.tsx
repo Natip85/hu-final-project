@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 type Props = {};
@@ -19,8 +18,8 @@ const Footer = (props: Props) => {
         <div className="d-flex flex-column justify-content-center">
           <h5 className="text-white">LEGAL INFORMATION</h5>
           <hr style={{opacity: '100%', backgroundColor: 'red', width: '25%', height: 5}}/>
-           <Link style={{color: 'white'}} to="">About us</Link>
-           <Link style={{color: 'white'}} to="">Privacy Policy</Link>
+           <Link style={{color: 'white'}} to="/about">About us</Link>
+           <Link style={{color: 'white'}} to="/privacy">Privacy Policy</Link>
         </div>
         <div className="d-flex justify-content-end flex-column">
           <div>

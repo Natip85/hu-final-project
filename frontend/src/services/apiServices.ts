@@ -8,6 +8,11 @@ const usersUrl = `${serverUrl}users/`;
 const categoriesUrl = `${serverUrl}categories/`;
 const itemsUrl = `${serverUrl}items/`;
 
+export async function getAllUsers(): Promise<Array<User>> {
+  const res = await fetch(`${usersUrl}`);
+  return res.json();
+}
+
 export async function signup(user: User): Promise<User> {
   const res = await fetch(`${usersUrl}signup`, {
     method: "POST",
@@ -203,7 +208,7 @@ export async function getSimiliarItem(pid: string, cid:string): Promise<Array<It
   return res.json();
 }
 
-export async function getFavorites(): Promise<any> {
+export async function getFavorites(): Promise<Array<Item>> {
   const res = await fetch(`${itemsUrl}favorites`, {
     method:"GET",
     headers: {
@@ -215,8 +220,6 @@ export async function getFavorites(): Promise<any> {
 }
 
 export async function setFavorites(id: string): Promise<Item> {
-  console.log(id);
-  
   const res = await fetch(`${itemsUrl}set-favorites/${id}`, {
     method: "PUT",
     headers: {

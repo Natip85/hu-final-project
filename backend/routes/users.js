@@ -4,7 +4,7 @@ const users = require('../controllers/users');
 const auth = require('../middleware/auth')
 const isAdmin = require('../middleware/adminAuth')
 
-
+router.get('/', users.allUsers);
 router.post('/signup', users.signup);
 router.post('/login', users.login);
 router.put('/profile', auth, users.updateProfileController)

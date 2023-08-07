@@ -2,26 +2,23 @@ import React, { FormEvent, useContext, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import FormTitle from '../../components/FormTitle';
+import FormTitle from "../../components/FormTitle";
 import { useState } from "react";
 import toast from "react-hot-toast";
-// import { signup } from "../services/apiServices";
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import { updateUser } from "../../services/apiServices";
 import UserMenu from "./UserMenu";
 type Props = {};
 
 const Profile = (props: Props) => {
-  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
-    const [passwordShown, setPasswordShown] = useState(false);
-    const [eyeShown, setEyeShown] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [eyeShown, setEyeShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
     setEyeShown(passwordShown ? false : true);
@@ -34,7 +31,6 @@ const Profile = (props: Props) => {
     setLastName(userData?.user.lastName);
     setEmail(userData?.user.email);
     setPhone(userData?.user.phone);
-    // setPassword(userData?.user.password);
     setAddress(userData?.user.address);
   }, [userData]);
 
@@ -59,19 +55,17 @@ const Profile = (props: Props) => {
         ls.user = json.updatedUser;
         localStorage.setItem("user", JSON.stringify(ls));
         toast.success("Profile updated");
-        // navigate(-1)
       }
     });
   };
 
   return (
     <Container className="d-flex">
-      <Container className="w-50">
-  <UserMenu/>
-      </Container>
-     
-      <Container className="p-4">
-       
+      <div className="w-25">
+        <UserMenu />
+      </div>
+
+      <div className="p-4 w-25">
         <div className="d-flex justify-content-center">
           <img
             className="w-50 rounded-circle"
@@ -83,8 +77,8 @@ const Profile = (props: Props) => {
         </div>
         <h3 className="text-center">{userData?.user.firstName}</h3>
         <h6 className="text-center text-muted ">{userData?.user.email}</h6>
-      </Container>
-      <Container>
+      </div>
+      <div className="w-50">
         <Form className="w-100 p-4" onSubmit={handleSubmit}>
           <FormTitle mainText="Your Profile" subText="edit below!" />
 
@@ -124,42 +118,39 @@ const Profile = (props: Props) => {
             />
           </Form.Group>
 
-           <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>
-          Password <span className="text-danger">*</span>
-        </Form.Label>
-        <div className="d-flex align-items-center justify-content-center">
-          <Form.Control
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type={passwordShown ? "text" : "password"}
-          />
-          {eyeShown ? (
-            <i
-              onClick={togglePasswordVisiblity}
-              className="bi bi-eye-slash-fill ms-1"
-              style={{
-                backgroundColor: "white",
-                fontSize: "1.5rem",
-                cursor: 'pointer'
-              }}
-            />
-          ) : (
-            <i
-              onClick={togglePasswordVisiblity}
-              className="bi bi-eye-fill ms-1"
-              style={{
-                backgroundColor: "white",
-                fontSize: "1.5rem",
-                cursor: 'pointer'
-                // border: "1px solid lightgrey",
-                // borderRadius: 5,
-                  // borderTopLeftRadius: 0
-              }}
-            />
-          )}
-        </div>
-      </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>
+              Password <span className="text-danger">*</span>
+            </Form.Label>
+            <div className="d-flex align-items-center justify-content-center">
+              <Form.Control
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={passwordShown ? "text" : "password"}
+              />
+              {eyeShown ? (
+                <i
+                  onClick={togglePasswordVisiblity}
+                  className="bi bi-eye-slash-fill ms-1"
+                  style={{
+                    backgroundColor: "white",
+                    fontSize: "1.5rem",
+                    cursor: "pointer",
+                  }}
+                />
+              ) : (
+                <i
+                  onClick={togglePasswordVisiblity}
+                  className="bi bi-eye-fill ms-1"
+                  style={{
+                    backgroundColor: "white",
+                    fontSize: "1.5rem",
+                    cursor: "pointer",
+                  }}
+                />
+              )}
+            </div>
+          </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPhone">
             <Form.Label>
@@ -189,7 +180,7 @@ const Profile = (props: Props) => {
             UPDATE
           </Button>
         </Form>
-      </Container>
+      </div>
     </Container>
   );
 };

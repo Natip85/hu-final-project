@@ -45,10 +45,7 @@ const StoreItem = ({
   }, [favorites]);
 
   async function handleSetFavs(id: string) {
-    console.log(id);
-
     await setFavorites(id).then((json) => {
-      console.log(json);
       json.success
         ? toast.success(`${json.name} Item added to favorites`)
         : toast.success(`${json.name} Item removed from favorites`);

@@ -18,9 +18,12 @@ module.exports = {
 
   createCategoryController: async function (req, res, next) {
     try {
-      const { name } = req.body;
+      const { name, catImg } = req.body;
       if (!name) {
         return res.status(401).send({ message: "Category name is required" });
+      }
+      if (!catImg) {
+        return res.status(401).send({ message: "Category image is required" });
       }
 
       const existingCategory = await Category.findOne({ name });
@@ -31,6 +34,7 @@ module.exports = {
       const category = await new Category({
         name,
         slug: slugify(name),
+        catImg
       }).save();
       res
         .status(201)
@@ -47,14 +51,17 @@ module.exports = {
 
   updateCategoryController: async function (req, res, next) {
     try {
-      const { name } = req.body;
+      const { name, catImg } = req.body;
       const { id } = req.params;
       if (!name) {
         return res.send({ message: "Category name is required" });
       }
+      if (!catImg) {
+        return res.send({ message: "Category image is required" });
+      }
       const category = await Category.findByIdAndUpdate(
         id,
-        { name, slug: slugify(name) },
+        { name, slug: slugify(name), catImg },
         { new: true }
       );
       res

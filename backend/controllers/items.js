@@ -35,6 +35,7 @@ module.exports = {
         category,
         photo,
         shipping,
+        size
       } = req.body;
       // const { photo } = req.files;
       switch (true) {
@@ -56,13 +57,11 @@ module.exports = {
             .send({ message: "Product quantity is required" });
         case !photo:
           return res.status(500).send({ message: "Product image is required" });
-        // case !photo && photo.size > 1000000:
-        //   return res
-        //     .status(500)
-        //     .send({ message: "Photo is required and must be less than 1mb" });
+        case !size:
+          return res.status(500).send({ message: "Product size is required" });
       }
 
-      // const product = new Item({ ...req.fields, slug: slugify(name) });
+    
       const product = await new Item({
         name,
         description,
@@ -72,14 +71,8 @@ module.exports = {
         slug: slugify(name),
         photo,
         shipping,
+        size
       }).save();
-
-      // if (photo) {
-      //   product.photo.data = fs.readFileSync(photo.path);
-      //   product.photo.contentType = photo.type;
-      // }
-
-      // await product.save();
 
       res
         .status(201)
@@ -123,11 +116,14 @@ module.exports = {
         category,
         photo,
         shipping,
+        size
       } = req.body;
       // const { photo } = req.files;
       switch (true) {
         case !name:
           return res.status(500).send({ message: "Product name is required" });
+        case !size:
+          return res.status(500).send({ message: "Product size is required" });
         case !description:
           return res
             .status(500)
@@ -160,11 +156,6 @@ module.exports = {
         },
         { new: true }
       );
-
-      // if (photo) {
-      //   product.photo.data = fs.readFileSync(photo.path);
-      //   product.photo.contentType = photo.type;
-      // }
 
       await product.save();
 
@@ -215,40 +206,39 @@ module.exports = {
   },
 
   productCountController: async function (req, res) {
-     try {
-    const total = await Item.find({}).estimatedDocumentCount();
-    res.status(200).send({ success: true, total });
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({
-      success: false,
-      message: "Error in product count",
-      error,
-    });
-  }
+    try {
+      const total = await Item.find({}).estimatedDocumentCount();
+      res.status(200).send({ success: true, total });
+    } catch (error) {
+      console.log(error);
+      res.status(400).send({
+        success: false,
+        message: "Error in product count",
+        error,
+      });
+    }
   },
 
   productListController: async function (req, res) {
     try {
-    const perPage = 6;
-    const page = req.params.page ? req.params.page : 1;
-    const products = await Item
-      .find({})
-      .skip((page - 1) * perPage)
-      .limit(perPage)
-      .sort({ createdAt: -1 });
-    res.status(200).send( products);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({
-      success: false,
-      message: "Error per page list",
-      error,
-    });
-  }
+      const perPage = 6;
+      const page = req.params.page ? req.params.page : 1;
+      const products = await Item.find({})
+        .skip((page - 1) * perPage)
+        .limit(perPage)
+        .sort({ createdAt: -1 });
+      res.status(200).send(products);
+    } catch (error) {
+      console.log(error);
+      res.status(400).send({
+        success: false,
+        message: "Error per page list",
+        error,
+      });
+    }
   },
 
-   singleProductController: async function (req, res, next) {
+  singleProductController: async function (req, res, next) {
     try {
       const product = await Item.findOne({ slug: req.params.slug }).populate(
         "category"
@@ -264,38 +254,38 @@ module.exports = {
     }
   },
 
-   relatedProductController: async function (req, res, next) {
-     try {
-    const { pid, cid } = req.params;
-    const products = await Item
-      .find({
+  relatedProductController: async function (req, res, next) {
+    try {
+      const { pid, cid } = req.params;
+      const products = await Item.find({
         category: cid,
         _id: { $ne: pid },
       })
-      .limit(3)
-      .populate("category");
-    res.status(200).send(products);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({
-      success: false,
-      message: "Error getting related products",
-      error,
-    });
-  }
+        .limit(3)
+        .populate("category");
+      res.status(200).send(products);
+    } catch (error) {
+      console.log(error);
+      res.status(400).send({
+        success: false,
+        message: "Error getting related products",
+        error,
+      });
+    }
   },
 
-   getUserFavoriteCards: async function (req, res, next) {
+  getUserFavoriteCards: async function (req, res, next) {
     try {
-      const userFavorites = await User.findById(req.user._id).populate('favorites');
+      const userFavorites = await User.findById(req.user._id).populate(
+        "favorites"
+      );
       if (!userFavorites) {
         return res.status(404).json({ message: "User not found" });
       }
 
-      
-      const favoriteCards = userFavorites.favorites
+      const favoriteCards = userFavorites.favorites;
 
-      return res.status(200).json( favoriteCards );
+      return res.status(200).json(favoriteCards);
     } catch (err) {
       console.log(err);
       res.status(500).json({
@@ -305,22 +295,22 @@ module.exports = {
     }
   },
 
-   setFavoriteController: async function (req, res, next) {
+  setFavoriteController: async function (req, res, next) {
     const itemId = req.params.id;
-   
+
     const userId = req.user._id;
     let status = false;
     try {
       const item = await Item.findById(itemId);
       const user = await User.findById(userId);
       console.log(user);
-     
+
       if (!item) {
         return res.status(404).json({ message: "Product not found" });
       }
 
       const itemIndex = item.favorites.indexOf(userId);
-      const userIndex = user.favorites.indexOf(itemId)
+      const userIndex = user.favorites.indexOf(itemId);
 
       if (itemIndex === -1) {
         item.favorites.push(userId);
@@ -350,4 +340,18 @@ module.exports = {
     }
   },
 
+  getSizesController: async function (req, res, next) {
+    const shoeSize = req.params.size;
+
+    try {
+      const filteredShoes = await Item.find({ size: shoeSize });
+      return res.status(200).json(filteredShoes);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({
+        status: "fail",
+        message: err.message,
+      });
+    }
+  },
 };

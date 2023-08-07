@@ -2,7 +2,7 @@ import { Select } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { Category } from '../interfaces/CategoryType';
 import { getCategories } from '../services/apiServices';
-
+import { Sizes } from "../components/SizeFilters";
 const { Option } = Select;
 
 interface FormProps  {
@@ -18,6 +18,7 @@ const ProductForm = ({handleSubmit}: FormProps) => {
   const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState("");
   const [photo, setPhoto] = useState("");
+  const [size, setSize] = useState("");
   
    useEffect(() => {
     getAllCategories();
@@ -38,6 +39,7 @@ price,
 quantity,
 category,
 photo,
+size
     })
   }
 
@@ -103,6 +105,25 @@ photo,
                     className="form-control"
                     onChange={(e) => setDescription(e.target.value)}
                   />
+                </div>
+                <div className="mb-3">
+                     <label htmlFor="">Product size <span className='text-danger'>*</span></label>
+                  <Select
+                  bordered={false}
+                  placeholder="Select an option"
+                  size="small"
+                  showSearch
+                  className="form-select mb-3"
+                  onChange={(value) => {
+                    setSize(value);
+                  }}
+                >
+                  {Sizes?.map((c) => (
+                    <Option key={c._id} value={c.size}>
+                      {c.size}
+                    </Option>
+                  ))}
+                </Select>
                 </div>
                 <div className="mb-3">
                      <label htmlFor="">Product price <span className='text-danger'>*</span></label>

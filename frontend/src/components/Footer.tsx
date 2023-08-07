@@ -12,8 +12,8 @@ const Footer = (props: Props) => {
           <h5 className="text-white">CUSTOMER SERVICE</h5>
           <hr style={{opacity: '100%', backgroundColor: 'red', width: '25%', height: 5}}/>
           <Link style={{color: 'white'}} to=""> Home </Link>
-          <Link style={{color: 'white'}} to="">Favorites</Link>
-          <Link style={{color: 'white'}} to="">Contact Me</Link>
+          <Link style={{color: 'white'}} to="/favorites">Favorites</Link>
+          <Link style={{color: 'white'}} to="/categories">All categories</Link>
         </div>
         <div className="d-flex flex-column justify-content-center">
           <h5 className="text-white">LEGAL INFORMATION</h5>

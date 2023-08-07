@@ -46,6 +46,10 @@ const itemSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
+    size: {
+      type: String,
+      required: true
+    }
   },
   { timestamps: true }
 );

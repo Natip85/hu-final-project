@@ -6,11 +6,13 @@ import {
   getCategories,
   getItemsCount,
   getProductList,
+  getSizeFilter,
 } from "../services/apiServices";
 import { Item } from "../interfaces/ItemType";
 import { Checkbox, Radio } from "antd";
 import { Category } from "../interfaces/CategoryType";
 import { Prices } from "../components/PriceFilters";
+import { Sizes } from "../components/SizeFilters";
 import { SearchContext } from "../context/SearchContext";
 import Skeleton from "../components/Skeleton";
 import { Link } from "react-router-dom";
@@ -20,22 +22,28 @@ const Home = () => {
   const [categories, setCategories] = useState<Array<Category>>([]);
   const [checked, setChecked] = useState<any>([]);
   const [radio, setRadio] = useState<any>([]);
+  const [sizeRadio, setSizeRadio] = useState<any>();
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const { searchValue } = useContext(SearchContext);
   const [filteredItems, setFilteredItems] = useState<Array<Item>>([]);
   const [skeletonLoading, setSkeletonLoading] = useState(true);
+console.log(sizeRadio);
 
   useEffect(() => {
+     getAllSizeProducts()
     const timer = setTimeout(() => {
       setSkeletonLoading(false);
     }, 1200);
     return () => clearTimeout(timer);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sizeRadio]);
 
   useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
+    if (!checked.length || !radio.length) 
+    getAllProducts();
+   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked.length, radio.length]);
 
@@ -81,6 +89,12 @@ const Home = () => {
     });
   }
 
+  async function getAllSizeProducts() {
+    await getSizeFilter(sizeRadio).then((json) => {
+      setAllItems(json);
+    });
+  }
+
   const handleFilter = (value: any, id: any) => {
     let all = [...checked];
     if (value) {
@@ -105,33 +119,6 @@ const Home = () => {
     );
     setFilteredItems(filtered);
   }, [searchValue, allItems]);
-
-  // const slides = [
-  //   {
-  //     image:
-  //       "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/8I37NtDffNV7AZlDa7uDvvqhovU.jpg",
-  //     title: "Avatar: The Way of Water",
-  //     subTitle:
-  //       "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
-  //     interval: 1500,
-  //   },
-  //   {
-  //     image:
-  //       "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
-  //     title: "Black Adam",
-  //     subTitle:
-  //       "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
-  //     interval: 500,
-  //   },
-  //   {
-  //     image:
-  //       "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
-  //     title: "Black Panther: Wakanda Forever",
-  //     subTitle:
-  //       "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
-  //     interval: 2500,
-  //   },
-  // ];
 
   const [index, setIndex] = useState(0);
 
@@ -209,6 +196,16 @@ const Home = () => {
               {Prices?.map((p) => (
                 <div key={p._id}>
                   <Radio value={p.array}>{p.name}</Radio>
+                </div>
+              ))}
+            </Radio.Group>
+          </div>
+          <h4 className="text-center mt-4">Filter By Size</h4>
+          <div className="d-flex flex-column">
+            <Radio.Group onChange={(e) => setSizeRadio(e.target.value)}>
+              {Sizes?.map((p) => (
+                <div key={p._id}>
+                  <Radio value={p.size}>{p.size}</Radio>
                 </div>
               ))}
             </Radio.Group>

@@ -79,9 +79,7 @@ const ProductDetails = (props: Props) => {
             <div>No related products to display</div>
           )}
           {relatedProducts.map((related) => (
-            <div key={related._id}>
-              <img src={related.photo} alt="related-images" />
-            </div>
+              <img style={{width: '150px', margin: 5}} src={related.photo} alt="related-images" />
           ))}
         </Container>
       </Container>

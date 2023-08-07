@@ -230,3 +230,13 @@ export async function setFavorites(id: string): Promise<Item> {
   });
   return res.json();
 }
+
+export async function getSizeFilter(size: string): Promise<Array<Item>> {
+  const res = await fetch(`${itemsUrl}sizes/${size}`, {
+     method: "GET",
+    headers: {
+      'x-auth-token': getToken()
+    }
+  });
+  return res.json();
+}

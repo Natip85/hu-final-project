@@ -7,7 +7,8 @@
       "category": "123456789999",
       "quantity": 50,
       "photo": "https://images.unsplash.com/photo-1597350584914-55bb62285896?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGFpciUyMGZvcmNlJTIwb25lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      "shipping": true
+      "shipping": true,
+      "size": "6"
     },
     {
       "name": "Nike Air Force 1 Mid - Black/Red",
@@ -17,7 +18,8 @@
       "category": "123456789999",
       "quantity": 30,
       "photo": "https://images.unsplash.com/photo-1513188732907-5f732b831ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8am9yZGFuc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      "shipping": false
+      "shipping": false,
+      "size": "7"
     },
     {
       "name": "Nike Air Force 1 '07 - Women's Floral",
@@ -27,7 +29,8 @@
       "category": "123456789999",
       "quantity": 20,
       "photo": "https://images.unsplash.com/photo-1592771404380-467f535c7c4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhc2tldGJhbGwlMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      "shipping": true
+      "shipping": true,
+      "size": "8"
     },
     {
       "name": "Nike Air Force 1 High - Wheat",
@@ -37,7 +40,8 @@
       "category": "123456789999",
       "quantity": 15,
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx5B1MSrc6mHgdu8YJRtdET939_q-b6p8aCw&usqp=CAU",
-      "shipping": true
+      "shipping": true,
+      "size": "9"
     }
    
 ]

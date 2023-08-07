@@ -17,7 +17,7 @@ const itemSchema = new mongoose.Schema(
     description: {
       type: String,
       required: [true, "Must submit a description."],
-      maxlength: [100, "Too many characters."],
+      maxlength: [5000, "Too many characters."],
       minlength: [2, "Min 2 characters required."],
     },
     price: {
@@ -27,7 +27,7 @@ const itemSchema = new mongoose.Schema(
     category: {
       type: mongoose.ObjectId,
       ref: "Category",
-      required: true,
+      // required: true,
     },
     quantity: {
       type: Number,

@@ -17,6 +17,8 @@ const Favorites = (props: Props) => {
 
   }, []);
   return (
+    <div className='d-flex flex-column align-items-center p-5' >
+     {favItems.length <1 && (<h2 className='m-5'>Add a favorite item</h2>)}
      <Row md={2} xs={3} lg={3} className="g-3 ms-3 w-100">
           {favItems.map((item) => (
             <Col key={item._id}>
@@ -27,6 +29,7 @@ const Favorites = (props: Props) => {
             </Col>
           ))}
         </Row>
+        </div>
   )
 }
 

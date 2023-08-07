@@ -12,7 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUserData } = useContext(UserContext);
-   const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
   const [eyeShown, setEyeShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -26,13 +26,10 @@ const Login = () => {
           toast.error("Login details do not match");
           return;
         } else {
-                    console.log(json);
-                    
-toast.success(`Welcome`);
- window.setTimeout(() => {
-          navigate("/");
-        }, 500);
-         
+          toast.success(`Welcome`);
+          window.setTimeout(() => {
+            navigate("/");
+          }, 500);
         }
 
         if (json.token) {
@@ -61,7 +58,7 @@ toast.success(`Welcome`);
         />
       </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>
           Password <span className="text-danger">*</span>
         </Form.Label>

@@ -11,6 +11,8 @@ var usersRouter = require('./routes/users');
 var itemsRouter = require('./routes/items');
 var categoriesRouter = require('./routes/categories');
 
+require('./utils/initilizeProject')
+
 const headers = require('./middleware/headers');
 const auth = require('./middleware/auth');
 

@@ -43,26 +43,14 @@ const Navbar = () => {
           <Nav.Link to="/" as={NavLink}>
             Home
           </Nav.Link>
-          <Nav.Link to="/about" as={NavLink}>
+          {/* <Nav.Link to="/about" as={NavLink}>
             About
-          </Nav.Link>
+          </Nav.Link> */}
           <Nav.Link to="/favorites" as={NavLink}>
             Favorites
           </Nav.Link>
-        </Nav>
 
-        {userData?.token && (
-          <>
-           <Col xs="auto">
-            <Form.Control
-            onChange={handleSearchChange}
-                    value={searchValue}
-              type="text"
-              placeholder="Search..."
-              className=" mr-sm-2"
-            />
-          </Col>
-            <Dropdown className="ms-4">
+            <Dropdown className="">
               <Dropdown.Toggle
                 className="ps-4 pe-4 border-0"
                 variant="outline-primary"
@@ -81,6 +69,20 @@ const Navbar = () => {
                 ))}
               </Dropdown.Menu>
             </Dropdown>
+        </Nav>
+
+        {userData?.token && (
+          <>
+           <Col xs="auto">
+            <Form.Control
+            onChange={handleSearchChange}
+                    value={searchValue}
+              type="text"
+              placeholder="Search..."
+              className=" mr-sm-2"
+            />
+          </Col>
+          
 
             <Dropdown className="ms-4">
               <Dropdown.Toggle

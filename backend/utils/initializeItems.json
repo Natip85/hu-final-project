@@ -4,9 +4,9 @@
       "slug": "nike-air-force-1-low-white",
       "description": "The iconic Nike Air Force 1 Low in classic white colorway. A timeless sneaker that goes well with any outfit.",
       "price": 100,
-      "category": "Men's Shoes",
+      "category": "123456789999",
       "quantity": 50,
-      "photo": "dddd",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyxBq2yJ2B0HzokzGUuPtMx77f_-LNPJT88laOka94GMfHVhxwYzxqgYu3mp_ggwSwZI&usqp=CAU",
       "shipping": true
     },
     {
@@ -14,9 +14,9 @@
       "slug": "nike-air-force-1-mid-black-red",
       "description": "A mid-top version of the Air Force 1 featuring a sleek black and red color combination.",
       "price": 120.00,
-      "category": "Men's Shoes",
+      "category": "123456789999",
       "quantity": 30,
-      "photo": "[Link to the photo]",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPA5UMC_Ui1XbtIgPujVu9q9D5lB76x52aqg&usqp=CAU",
       "shipping": false
     },
     {
@@ -24,9 +24,9 @@
       "slug": "nike-air-force-1-07-floral",
       "description": "An '07 edition of the Air Force 1 for women, adorned with a floral pattern for a stylish look.",
       "price": 95.00,
-      "category": "Women's Shoes",
+      "category": "123456789999",
       "quantity": 20,
-      "photo": "[Link to the photo]",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8t_HON1gtn5cLpBCIpyybuyrI-5o3Zb031ENf4pStLCXSGM7redmPnVvchrt_aRIaEbs&usqp=CAU",
       "shipping": true
     },
     {
@@ -34,19 +34,10 @@
       "slug": "nike-air-force-1-high-wheat",
       "description": "The high-top version of the Air Force 1 in a warm wheat color, perfect for the fall season.",
       "price": 110.00,
-      "category": "Men's Shoes",
+      "category": "123456789999",
       "quantity": 15,
-      "photo": "[Link to the photo]",
-      "shipping": true
-    },
-    {
-      "name": "Nike Air Force 1 LV8 - Metallic Gold",
-      "slug": "nike-air-force-1-lv8-gold",
-      "description": "The LV8 edition of Air Force 1 featuring a shiny metallic gold finish for a luxurious touch.",
-      "price": 130.00,
-      "category": "Men's Shoes",
-      "quantity": 25,
-      "photo": "[Link to the photo]",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx5B1MSrc6mHgdu8YJRtdET939_q-b6p8aCw&usqp=CAU",
       "shipping": true
     }
+   
 ]

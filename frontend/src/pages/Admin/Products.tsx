@@ -107,7 +107,7 @@ const Products = () => {
                   </Card.Title>
                   <Card.Title>
                     <span className="fs-6">
-                      Category: {JSON.stringify(item.category.name)}
+                      Category: {item.category == null ? "N/A" : JSON.stringify(item.category.name)}
                     </span>
                   </Card.Title>
                 </Card.Body>

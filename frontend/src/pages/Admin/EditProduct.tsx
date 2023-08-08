@@ -27,6 +27,7 @@ const EditProduct = (props: Props) => {
   const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState('');
   const [photo, setPhoto] = useState("");
+  const [size, setSize] = useState("");
   const [visible, setVisible] = useState(false);
   const [product, setProduct] = useState<Item>();
   const navigate = useNavigate();
@@ -36,8 +37,6 @@ const EditProduct = (props: Props) => {
      if (!params) return;
     getAllCategories();
     getProduct()
-    // console.log(params);
-    // console.log(product);
   }, [params]);
 
   function getAllCategories() {
@@ -49,8 +48,6 @@ const EditProduct = (props: Props) => {
   const getProduct = async () => {
     if (!params) return;
     await getSingleItem(params.id).then((json) => {
-      
-      // console.log(json);
       setProduct(json)
       
       
@@ -61,6 +58,7 @@ const EditProduct = (props: Props) => {
       setQuantity(json.quantity);
        setShipping(json.shipping)
        setCategory(json.category)
+       setSize(json.size)
     });
   };
 
@@ -75,6 +73,7 @@ const EditProduct = (props: Props) => {
       price,
       quantity,
       shipping,
+      size
     }).then((json) => {
       if (json.success) {
           toast.success(`${json.message}`);
@@ -178,6 +177,15 @@ const EditProduct = (props: Props) => {
               value={description}
               className="form-control"
               onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className="mb-3">
+               <label htmlFor="">Product size <span className='text-danger'>*</span></label>
+            <input
+              type="text"
+              value={size}
+              className="form-control"
+              onChange={(e) => setSize(e.target.value)}
             />
           </div>
           <div className="mb-3">

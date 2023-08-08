@@ -6,6 +6,7 @@ export interface Item {
   price: number;
   category: any;
   quantity: number;
+  size: string;
   favorites?: [] | null;
   shipping: boolean
   error?: string

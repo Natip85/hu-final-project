@@ -1,4 +1,4 @@
-import { Carousel, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import StoreItem from "../components/StoreItem";
 import { useContext, useEffect, useState } from "react";
 import {
@@ -15,7 +15,7 @@ import { Prices } from "../components/PriceFilters";
 import { Sizes } from "../components/SizeFilters";
 import { SearchContext } from "../context/SearchContext";
 import Skeleton from "../components/Skeleton";
-import { Link } from "react-router-dom";
+import HomeCarousel from "../components/HomeCarousel";
 
 const Home = () => {
   const [allItems, setAllItems] = useState<Array<Item>>([]);
@@ -31,19 +31,18 @@ const Home = () => {
   const [skeletonLoading, setSkeletonLoading] = useState(true);
 
   useEffect(() => {
-     getAllSizeProducts()
+    getAllSizeProducts();
     const timer = setTimeout(() => {
       setSkeletonLoading(false);
     }, 1200);
     return () => clearTimeout(timer);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sizeRadio]);
 
   useEffect(() => {
-    if (!checked.length || !radio.length) 
-    getAllProducts();
-   
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!checked.length || !radio.length) getAllProducts();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked.length, radio.length]);
 
   useEffect(() => {
@@ -60,7 +59,7 @@ const Home = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const loadMore = async () => {
@@ -73,7 +72,7 @@ const Home = () => {
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked, radio]);
 
   async function getAllCategories() {
@@ -119,62 +118,10 @@ const Home = () => {
     setFilteredItems(filtered);
   }, [searchValue, allItems]);
 
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex: any, e: any) => {
-    // console.log("selected index: ", selectedIndex);
-    setIndex(selectedIndex);
-  };
-
   return (
     <>
-    
-      <Carousel
-      fade
-        style={{ maxHeight: "450px" }}
-        className="mb-5"
-        activeIndex={index}
-        onSelect={handleSelect}
-        nextIcon={
-          <span
-            aria-hidden="true"
-            className="carousel-control-next-icon changed bg-dark"
-          />
-        }
-        prevIcon={
-          <span
-            aria-hidden="true"
-            className="carousel-control-prev-icon changed bg-dark"
-          />
-        }
-      >
-        {allItems.map((slide) => (
-          <Carousel.Item
-            key={slide.photo}
-            interval={2500}
-            style={{
-                maxHeight: "450px",
-                objectFit: "contain",
-              }}
-          >
-            <img
-              className="d-block w-100"
-              src={slide.photo}
-              alt="First slide"
-              style={{
-                maxHeight: "450px",
-                objectFit: "cover",
-                opacity: '85%'
-              }}
-            />
-            <Carousel.Caption >
-              <h3 className="text-secondary">{slide.name}</h3>
-              <p className="text-secondary">{slide.description}</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-<hr/>
+      <HomeCarousel />
+      <hr />
       <Container className="d-flex p-0">
         <div className="col-md-2 me-3">
           <h4 className="text-center">Filter By Category</h4>
@@ -245,42 +192,8 @@ const Home = () => {
             {loading ? "Loading..." : "Loadmore"}
           </button>
         )}
-
       </Container>
-      <hr/>
-       <div className="my-3 text-center">
-          {" "}
-          <img
-            style={{ width: "19rem",margin:'.3rem' }}
-            src={
-              "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2021/2021_06_035_onl_new_hp_layout/04_final_output_files/2021_06_035_ONL_Nike_bar_800x280.jpg"
-            }
-            alt=""
-          />
-          <img
-            style={{ width: "19rem",margin:'.3rem' }}
-            src={
-              "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2021/2021_06_035_onl_new_hp_layout/04_final_output_files/2021_06_035_ONL_Adidas_bar_800x280.jpg"
-            }
-            alt=""
-          />
-          <img
-            style={{ width: "19rem", margin:'.3rem' }}
-            src={
-              "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2021/2021_06_035_onl_new_hp_layout/04_final_output_files/2021_06_035_ONL_Jordan_bar_800x280.jpg"
-            }
-            alt=""
-          />
-          <Link to={`/categories`}>
-          <img
-            style={{ width: "19rem", margin:'.3rem' }}
-            src={
-              "https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2021/2021_06_035_onl_new_hp_layout/04_final_output_files/2021_06_035_ONL_all_brands_bar_en_800x280.jpg"
-            }
-            alt=""
-          />
-          </Link>
-        </div>
+      <hr />
     </>
   );
 };

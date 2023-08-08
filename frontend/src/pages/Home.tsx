@@ -128,7 +128,6 @@ const Home = () => {
 
   return (
     <>
-    {/* <h1 className="text-center text-decoration-underline my-5">SHOP NOW!</h1> */}
     
       <Carousel
       fade
@@ -282,7 +281,6 @@ const Home = () => {
           />
           </Link>
         </div>
-           {/* <hr/> */}
     </>
   );
 };

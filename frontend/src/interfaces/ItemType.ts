@@ -16,4 +16,5 @@ export interface Item {
   checked?: any
   radio?: any
   total?: any
+  status?: any
 }

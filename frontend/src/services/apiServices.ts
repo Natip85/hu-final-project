@@ -208,7 +208,7 @@ export async function getSimiliarItem(pid: string, cid:string): Promise<Array<It
   return res.json();
 }
 
-export async function getFavorites(): Promise<Array<Item>> {
+export async function getFavorites(): Promise<any> {
   const res = await fetch(`${itemsUrl}favorites`, {
     method:"GET",
     headers: {
@@ -221,7 +221,7 @@ export async function getFavorites(): Promise<Array<Item>> {
 
 export async function setFavorites(id: string): Promise<Item> {
   const res = await fetch(`${itemsUrl}set-favorites/${id}`, {
-    method: "PUT",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       'x-auth-token': getToken()

@@ -274,7 +274,7 @@ module.exports = {
     }
   },
 
-  getUserFavoriteCards: async function (req, res, next) {
+  getUserFavoriteItems: async function (req, res, next) {
     try {
       const userFavorites = await User.findById(req.user._id).populate(
         "favorites"
@@ -303,7 +303,6 @@ module.exports = {
     try {
       const item = await Item.findById(itemId);
       const user = await User.findById(userId);
-      console.log(user);
 
       if (!item) {
         return res.status(404).json({ message: "Product not found" });

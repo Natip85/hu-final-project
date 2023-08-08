@@ -29,7 +29,6 @@ const Home = () => {
   const { searchValue } = useContext(SearchContext);
   const [filteredItems, setFilteredItems] = useState<Array<Item>>([]);
   const [skeletonLoading, setSkeletonLoading] = useState(true);
-console.log(sizeRadio);
 
   useEffect(() => {
      getAllSizeProducts()
@@ -129,7 +128,7 @@ console.log(sizeRadio);
 
   return (
     <>
-    <h1 className="text-center text-decoration-underline my-5">SHOP NOW!</h1>
+    {/* <h1 className="text-center text-decoration-underline my-5">SHOP NOW!</h1> */}
     
       <Carousel
       fade
@@ -205,7 +204,7 @@ console.log(sizeRadio);
             <Radio.Group onChange={(e) => setSizeRadio(e.target.value)}>
               {Sizes?.map((p) => (
                 <div key={p._id}>
-                  <Radio value={p.size}>{p.size}</Radio>
+                  <Radio value={p.size}>size {p.size}</Radio>
                 </div>
               ))}
             </Radio.Group>

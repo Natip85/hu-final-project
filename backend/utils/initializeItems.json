@@ -4,18 +4,29 @@
       "slug": "nike-air-force-1-low-white",
       "description": "The iconic Nike Air Force 1 Low in classic white colorway. A timeless sneaker that goes well with any outfit.",
       "price": 100,
-      "category": "123456789999",
+      "category": "Nike",
       "quantity": 50,
       "photo": "https://images.unsplash.com/photo-1597350584914-55bb62285896?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGFpciUyMGZvcmNlJTIwb25lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "shipping": true,
       "size": "6"
     },
+   {
+      "name": "Nike Air Force 1 Low - Baby Blue",
+      "slug": "nike-air-force-1-low-baby-blue",
+      "description": "The iconic Nike Air Force 1 Low in classic blue colorway. A timeless sneaker that goes well with any outfit.",
+      "price": 120,
+      "category": "Nike",
+      "quantity": 50,
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS27lmp08IevfyrT7rMskIjPwWet_VUBW5NyQ&usqp=CAU",
+      "shipping": true,
+      "size": "6"
+    },
     {
-      "name": "Nike Air Force 1 Mid - Black/Red",
-      "slug": "nike-air-force-1-mid-black-red",
-      "description": "A mid-top version of the Air Force 1 featuring a sleek black and red color combination.",
+      "name": "Air Jordan 1 Mid - Black/Red",
+      "slug": "air-jordan-1-mid-black-red",
+      "description": "A mid-top version of the Air Jordan 1 featuring a sleek black and red color combination.",
       "price": 120.00,
-      "category": "123456789999",
+      "category": "Jordan",
       "quantity": 30,
       "photo": "https://images.unsplash.com/photo-1513188732907-5f732b831ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8am9yZGFuc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "shipping": false,
@@ -26,7 +37,7 @@
       "slug": "nike-air-force-1-07-floral",
       "description": "An '07 edition of the Air Force 1 for women, adorned with a floral pattern for a stylish look.",
       "price": 95.00,
-      "category": "123456789999",
+      "category": "Reebok",
       "quantity": 20,
       "photo": "https://images.unsplash.com/photo-1592771404380-467f535c7c4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhc2tldGJhbGwlMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "shipping": true,
@@ -37,11 +48,33 @@
       "slug": "nike-air-force-1-high-wheat",
       "description": "The high-top version of the Air Force 1 in a warm wheat color, perfect for the fall season.",
       "price": 110.00,
-      "category": "123456789999",
+      "category": "Addidas",
       "quantity": 15,
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx5B1MSrc6mHgdu8YJRtdET939_q-b6p8aCw&usqp=CAU",
       "shipping": true,
       "size": "9"
+    },
+    {
+      "name": "Puma Exotek Nitro",
+      "slug": "puma-exotek-nitro-running",
+      "description": "The newsest style from Puma, perfect for all seasons.",
+      "price": 110.00,
+      "category": "Puma",
+      "quantity": 15,
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX5qMtZGGBjvy68lPw1WTlYSk97uxbub2ZBw&usqp=CAU",
+      "shipping": true,
+      "size": "9"
+    },
+    {
+      "name": "Converse Chuck Taylor Star Low",
+      "slug": "converse-chuck-taylor-low",
+      "description": "The converse shoe, perfect for all seasons.",
+      "price": 55,
+      "category": "Converse",
+      "quantity": 15,
+      "photo": "data:image/jpeg;base64,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",
+      "shipping": true,
+      "size": "8"
     }
    
 ]

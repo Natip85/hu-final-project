@@ -14,8 +14,8 @@ router.get('/product-count',  items.productCountController)
 router.get('/product-list/:page',  items.productListController)
 router.get('/related-product/:pid/:cid',  items.relatedProductController)
 router.get('/product-category/:slug',  items.productCategoryController)
-router.get('/favorites', auth, items.getUserFavoriteCards);
-router.put('/set-favorites/:id',auth, items.setFavoriteController);
+router.get('/favorites', auth, items.getUserFavoriteItems);
+router.post('/set-favorites/:id',auth, items.setFavoriteController);
 router.get('/sizes/:size', items.getSizesController);
 
 module.exports = router;

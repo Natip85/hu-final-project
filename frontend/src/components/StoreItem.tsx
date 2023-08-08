@@ -30,6 +30,7 @@ const StoreItem = ({
 
   useEffect(() => {
     const ifCardIsFavorite = (userId: string | null | undefined) => {
+      
       favorites?.forEach((id) => {
         if (id === userId) {
           setIsRedHeart(true);
@@ -40,13 +41,13 @@ const StoreItem = ({
     const userObject = getUser();
 
     if (userObject) {
-      ifCardIsFavorite(userObject._id);
+      ifCardIsFavorite(userObject.user._id);
     }
   }, [favorites]);
 
   async function handleSetFavs(id: string) {
     await setFavorites(id).then((json) => {
-      json.success
+      json.status
         ? toast.success(`${json.name} Item added to favorites`)
         : toast.success(`${json.name} Item removed from favorites`);
     });
@@ -77,7 +78,6 @@ const StoreItem = ({
             onClick={() => {
               handleSetFavs(_id as string);
               toggleRed();
-              toast.success(`${name} added to favorites`)
             }}
           >
             <i

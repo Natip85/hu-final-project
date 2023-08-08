@@ -3,7 +3,7 @@ import { Category } from "../interfaces/CategoryType";
 import { Item } from "../interfaces/ItemType";
 import { User } from "../interfaces/UserType";
 
-const serverUrl = "http://localhost:3000/";
+const serverUrl = "http://localhost:4700/";
 const usersUrl = `${serverUrl}users/`;
 const categoriesUrl = `${serverUrl}categories/`;
 const itemsUrl = `${serverUrl}items/`;

@@ -17,9 +17,9 @@ const initializProject = async () => {
       }));
 
       await Item.insertMany(allProducts);
-      console.log("Database populated with starting data.");
+      console.log("Database populated with starting data.".bgGreen);
     } else {
-      console.log("Starting data already exists in the database.");
+      console.log("Starting data already exists in the database.".bgYellow);
     }
   } catch (error) {
     console.error("Error populating database:", error);

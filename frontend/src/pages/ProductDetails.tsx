@@ -5,12 +5,12 @@ import { Item } from "../interfaces/ItemType";
 import { Button, Container } from "react-bootstrap";
 import { formatCurrency } from "../utilities/FormatCurrency";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import toast from 'react-hot-toast'
+import toast from "react-hot-toast";
 
 type Props = {};
 
 const ProductDetails = (props: Props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState<Item>();
   const [relatedProducts, setRelatedProducts] = useState<Array<Item>>([]);
@@ -37,7 +37,13 @@ const ProductDetails = (props: Props) => {
   return (
     <>
       <Container className="d-flex flex-column">
-        <Button className="w-25 mb-5" variant="outline-primary" onClick={()=>navigate(-1)}>back</Button>
+        <Button
+          className="w-25 mb-5"
+          variant="outline-primary"
+          onClick={() => navigate(-1)}
+        >
+          back
+        </Button>
         <Container className="d-flex">
           <Container className="w-50">
             <img className="w-100" src={product?.photo} alt="product-pic" />
@@ -54,9 +60,13 @@ const ProductDetails = (props: Props) => {
             />
             <span>{formatCurrency(product?.price as number)}</span>
             <p className="mt-3">{product?.description}</p>
+            <div className="d-flex justify-content-between pe-5 mb-1">
+              Size:
+              <span>{product?.size}</span>
+            </div>
             <div className="d-flex justify-content-between pe-5 mb-5">
-              Quantity
-              <span>{product?.quantity}</span>
+              Left in stock
+              <span style={{color: product?.quantity as number > 5 ? "green": "red"}}>{product?.quantity}</span>
             </div>
 
             <div>
@@ -79,7 +89,12 @@ const ProductDetails = (props: Props) => {
             <div>No related products to display</div>
           )}
           {relatedProducts.map((related) => (
-              <img style={{width: '150px', margin: 5}} src={related.photo} alt="related-images" />
+            <img
+            key={related._id}
+              style={{ width: "150px", margin: 5 }}
+              src={related.photo}
+              alt="related-images"
+            />
           ))}
         </Container>
       </Container>

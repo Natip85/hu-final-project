@@ -171,4 +171,19 @@ module.exports = {
       });
     }
   },
+
+  deleteUserController: async function (req, res, next) {
+    try {
+     const { id } = req.params;
+      await User.findByIdAndDelete(id);
+      res.status(200).send({ success: true, message: "User deleted" });
+    } catch (error) {
+      console.log(error);
+      res.status(400).send({
+        success: false,
+        message: "Error deleting user",
+        error,
+      });
+    }
+  },
 };

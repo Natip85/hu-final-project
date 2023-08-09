@@ -17,6 +17,7 @@ const StoreItem = ({
   photo,
   slug,
   favorites,
+  size
 }: StoreItemProp) => {
   const navigate = useNavigate();
   const {
@@ -58,7 +59,7 @@ const StoreItem = ({
   };
 
   return (
-    <Card className="h-100">
+    <Card className="">
       <Card.Img
         variant="top"
         src={photo}
@@ -72,6 +73,7 @@ const StoreItem = ({
             {formatCurrency(price as number)}
           </span>
         </Card.Title>
+        
         <div className="mb-3">
           <Button
             variant="light"
@@ -86,7 +88,7 @@ const StoreItem = ({
             />
           </Button>
         </div>
-        <div className="mt-auto">
+        <div className="">
           {quantity < 1 ? (
             <Button
               className="w-100"

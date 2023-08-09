@@ -8,6 +8,7 @@ router.get('/', users.allUsers);
 router.post('/signup', users.signup);
 router.post('/login', users.login);
 router.put('/profile', auth, users.updateProfileController)
+router.delete('/delete-user/:id',  auth, isAdmin, users.deleteUserController)
 
 router.get('/user-auth', auth, (req, res)=>{
   res.status(200).send({ok: true})

@@ -100,6 +100,11 @@ const Products = () => {
                       {item.description?.substring(0, 30)}...
                     </span>
                   </Card.Title>
+                  <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+                    <span className="fs-5">
+                      Size: {item.size}
+                    </span>
+                  </Card.Title>
                   <Card.Title>
                     <span className="fs-6">
                       Shipping: {JSON.stringify(item.shipping) ? "Yes" : "No"}

@@ -65,6 +65,16 @@ export async function updateUser(user: User): Promise<User> {
   return res.json();
 }
 
+export async function deleteUser(_id: string): Promise<User> {
+  const res = await fetch(`${usersUrl}delete-user/${_id}`, {
+    method: "DELETE",
+    headers: {
+      'x-auth-token': getToken()
+    },
+  });
+  return res.json();
+}
+
 export async function getCategories(): Promise<Array<Category>> {
   const res = await fetch(`${categoriesUrl}get-categories`);
   return res.json();

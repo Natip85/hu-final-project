@@ -226,7 +226,7 @@ module.exports = {
       const products = await Item.find({})
         .skip((page - 1) * perPage)
         .limit(perPage)
-        .sort({ createdAt: -1 });
+        // .sort({ createdAt: -1 });
       res.status(200).send(products);
     } catch (error) {
       console.log(error);

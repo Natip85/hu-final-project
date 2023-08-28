@@ -117,7 +117,7 @@ const Signup = () => {
           {eyeShown ? (
             <i
               onClick={togglePasswordVisiblity}
-              className="bi bi-eye-slash-fill ms-1"
+              className="bi bi-eye-slash-fill ms-1 "
               style={{
                 backgroundColor: "white",
                 fontSize: "1.5rem",

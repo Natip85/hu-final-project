@@ -37,6 +37,7 @@ const EditProduct = (props: Props) => {
      if (!params) return;
     getAllCategories();
     getProduct()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   function getAllCategories() {

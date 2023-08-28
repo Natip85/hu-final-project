@@ -5,10 +5,12 @@ import { deleteUser, getAllUsers } from "../../services/apiServices";
 import { User } from "../../interfaces/UserType";
 import { SearchContext } from "../../context/SearchContext";
 import toast from 'react-hot-toast'
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Users = (props: Props) => {
+  const navigate = useNavigate()
   const [users, setUsers] = useState<Array<User>>([]);
     const { searchValue } = useContext(SearchContext);
      const [filteredItems, setFilteredItems] = useState<Array<User>>([]);
@@ -75,12 +77,7 @@ const Users = (props: Props) => {
                 <Button
                   variant="sm"
                   className="btn btn-primary ms-2"
-                  onClick={() => {
-                    // setVisible(true);
-                    // setUpdatedName(c.name);
-                    // setUpdatedCatImg(c.catImg);
-                    // setSelected(c._id);
-                  }}
+                  onClick={() => navigate(`/dashboard/admin/users/${c._id}`)}
                 >
                   Edit
                 </Button>

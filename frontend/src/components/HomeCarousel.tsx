@@ -50,10 +50,6 @@ const HomeCarousel = (props: Props) => {
           <Carousel.Item
             key={slide.photo}
             interval={2500}
-            style={{
-                maxHeight: "450px",
-                objectFit: "contain",
-              }}
           >
             <img
               className="d-block w-100"
@@ -61,7 +57,7 @@ const HomeCarousel = (props: Props) => {
               alt="First slide"
               style={{
                 maxHeight: "450px",
-                objectFit: "cover",
+                objectFit: 'cover',
                 opacity: '85%'
               }}
             />

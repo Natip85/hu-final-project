@@ -48,6 +48,7 @@ const Home = () => {
   useEffect(() => {
     getAllCategories();
     getTotalCount();
+    getAllProducts()
   }, []);
 
   const getTotalCount = async () => {

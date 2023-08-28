@@ -19,6 +19,20 @@ module.exports = {
       res.status(400).json({ message: "error getting users" });
     }
   },
+    singleUserController: async function (req, res, next) {
+    try {
+      const user = await User.findOne({ _id: req.params.id });
+
+      res.status(200).send(user);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "Error in getting single user",
+        error,
+      });
+    }
+  },
   signup: async function (req, res, next) {
     try {
       const { firstName, lastName, email, password, phone, address } = req.body;
@@ -167,6 +181,69 @@ module.exports = {
       res.status(400).send({
         success: false,
         message: "Error updating profile",
+        error,
+      });
+    }
+  },
+   adminUpdateUserController: async function (req, res, next) {
+    try {
+      const {
+        role,
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        isBlocked,
+      } = req.body;
+
+      // switch (true) {
+      //   case !name:
+      //     return res.status(500).send({ message: "Product name is required" });
+      //   case !size:
+      //     return res.status(500).send({ message: "Product size is required" });
+      //   case !description:
+      //     return res
+      //       .status(500)
+      //       .send({ message: "Product description is required" });
+      //   case !price:
+      //     return res.status(500).send({ message: "Product price is required" });
+      //   case !category:
+      //     return res
+      //       .status(500)
+      //       .send({ message: "Product category is required" });
+        // case !shipping:
+        //   return res.status(500).send({ message: "Shipping is required" });
+        // case !quantity:
+        //   return res
+        //     .status(500)
+        //     .send({ message: "Product quantity is required" });
+        // case !photo:
+        //   return res.status(500).send({ message: "Product image is required" });
+        // case !photo:
+        //   return res
+        //     .status(500)
+        //     .send({ message: "Photo is required and must be less than 1mb" });
+      // }
+
+      const user = await User.findByIdAndUpdate(
+        req.params.id,
+        {
+          ...req.body,
+        },
+        { new: true }
+      );
+
+      await user.save();
+
+      res
+        .status(201)
+        .send({ success: true, message: "User updated", user });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "Error in updating user",
         error,
       });
     }

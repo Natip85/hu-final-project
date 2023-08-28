@@ -25,6 +25,7 @@ import Footer from "./components/Footer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Users from "./pages/Admin/Users";
 import UserFavorites from "./pages/Users/UserFavorites";
+import EditUser from "./pages/Admin/EditUser";
 
 function App() {
   
@@ -56,6 +57,7 @@ function App() {
             <Route path="/dashboard" element={<AdminPrivate />}>
               <Route path="admin" element={<AdminDashboard />} />
               <Route path='admin/users' element={<Users/>}/>
+              <Route path='admin/users/:id' element={<EditUser/>}/>
               <Route path='admin/products' element={<Products/>}/>
               <Route path='admin/products/:id' element={<EditProduct/>}/>
               <Route

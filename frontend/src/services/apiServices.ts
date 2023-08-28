@@ -65,6 +65,28 @@ export async function updateUser(user: User): Promise<User> {
   return res.json();
 }
 
+export async function adminUpdateUser(_id: any, user: User): Promise<User> {
+  const res = await fetch(`${usersUrl}update-user/${_id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      'x-auth-token': getToken()
+    },
+    body: JSON.stringify(user),
+  });
+  return res.json();
+}
+
+export async function getSingleUser(_id: any): Promise<User> {
+  const res = await fetch(`${usersUrl}single-user/${_id}`, {
+     method: "GET",
+    headers: {
+      'x-auth-token': getToken()
+    }
+  });
+  return res.json();
+}
+
 export async function deleteUser(_id: string): Promise<User> {
   const res = await fetch(`${usersUrl}delete-user/${_id}`, {
     method: "DELETE",

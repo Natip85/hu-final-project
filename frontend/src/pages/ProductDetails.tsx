@@ -18,6 +18,7 @@ const ProductDetails = (props: Props) => {
 
   useEffect(() => {
     if (params.slug) getProduct();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.slug]);
 
   const getProduct = async () => {
